@@ -1,26 +1,22 @@
-// src/hooks/useWorkflowState.js
 import { useState } from "react";
+import { loadDraft } from "../utils/draft";
 
 export const useWorkflowState = () => {
-  /* ──────────────────────────────────────────────────────────
-     We stay on step 1 while criteriaStage flips between
-     "base" and "recordTypes"
-     ────────────────────────────────────────────────────────── */
-  const [currentStep, setCurrentStep] = useState(1);
-  const [workflowData, setWorkflowData] = useState({
-    /* criteria */
-    criteriaStage: "base", // "base" | "recordTypes"
-    baseEntity:     "",    // one of baseOptions[].id
+  const draft = loadDraft();
+  const [currentStep, setCurrentStep] = useState(draft?.currentStep ?? 1);
 
-    /* second half of criteria */
-    recordTypes: [],       // array of recordType ids
+  const stored = localStorage.getItem("workflow-draft");
+  const initialWorkflowData =  draft?.workflowData ??
+      {
+        criteriaStage: "base",
+        baseEntity: "",
+        recordTypes: [],
+        trigger: "",
+        action: "",
+      };
 
-    /* later steps */
-    trigger: "",
-    action:  "",
-  });
+  const [workflowData, setWorkflowData] = useState(initialWorkflowData);
 
-  /* ───── validation per (sub-)step ───── */
   const isStepValid = (step) => {
     if (step !== 1) {
       if (step === 2) return workflowData.trigger !== "";
@@ -34,25 +30,21 @@ export const useWorkflowState = () => {
     return workflowData.recordTypes.length > 0;
   };
 
-  /* ───── completed? (for progress bar) ───── */
   const isStepCompleted = (id) =>
     id < currentStep || (id === currentStep && isStepValid(id));
 
-  /* ───── navigation ───── */
   const handleNext = () => {
-    /* still inside Criteria? */
     if (currentStep === 1) {
       if (!isStepValid(1)) return;
 
       if (workflowData.criteriaStage === "base") {
         setWorkflowData((d) => ({ ...d, criteriaStage: "recordTypes" }));
       } else {
-        setCurrentStep(2); // finally proceed
+        setCurrentStep(2);
       }
       return;
     }
 
-    /* steps 2–3 */
     if (currentStep < 4 && isStepValid(currentStep)) {
       setCurrentStep((s) => s + 1);
     }
@@ -69,7 +61,6 @@ export const useWorkflowState = () => {
   };
 
   const handleStepClick = (stepId) => {
-    /* prevent jumping out of incomplete criteria */
     if (stepId === 1) {
       setCurrentStep(1);
       return;

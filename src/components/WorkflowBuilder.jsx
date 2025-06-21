@@ -24,7 +24,18 @@ const WorkflowBuilder = () => {
   } = useWorkflowState();
 
   const handleClose = () => alert("Workflow builder closed");
-  const handleSubmit = () => alert("Workflow created successfully!");
+  const handleSubmit = () => {
+    localStorage.removeItem("workflow-draft");
+    alert("Workflow created successfully!");
+  };
+
+  const handleSaveDraft = () => {
+    localStorage.setItem(
+      "workflow-draft",
+      JSON.stringify({ workflowData, currentStep })
+    );
+    alert("Draft saved! You can resume it later.");
+  };
 
   /* helper */
   const renderStep = () => {
@@ -77,6 +88,16 @@ const WorkflowBuilder = () => {
             <ChevronLeft size={16} className="mr-1" />
             Back
           </button>
+
+          {currentStep !== 1 && <button
+            onClick={handleSaveDraft}
+            className={`px-4 py-2 text-sm rounded-lg transition-colors mr-auto
+              ${currentStep === 1 && !isStepValid(1)
+                ? "text-gray-400 cursor-not-allowed"
+                : "text-blue-600 hover:text-blue-700"}`}
+          >
+            Save & Finish Later
+          </button>}
 
           {currentStep < 4 ? (
             <button
