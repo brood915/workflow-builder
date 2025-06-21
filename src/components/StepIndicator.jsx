@@ -4,9 +4,9 @@ import { Check } from "lucide-react";
 import { steps } from "../constants/workflowData";
 
 /* Figma colours */
-const GREY   = "#D1D1D1";   // lines, upcoming circles, borders
-const GREEN  = "#14833B";   // completed circle
-const LABEL  = "#242424";   // step names
+const GREY   = "#D1D1D1"; 
+const GREEN  = "#14833B";
+const LABEL  = "#242424"; 
 
 const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
   <div className="flex items-center justify-between mb-3">
@@ -14,7 +14,6 @@ const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
       const completed = isStepCompleted(step.id) && step.id < currentStep;
       const active    = step.id === currentStep;
 
-      /* circle classes */
       let circleCls =
         "flex items-center justify-center w-6 h-6 rounded-full cursor-pointer transition-colors z-10";
       if (completed) {
@@ -31,14 +30,14 @@ const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
             <div className={circleCls} onClick={() => onStepClick(step.id)}>
               {completed && <Check size={14} className="text-white" />}
             </div>
-            <span className={`text-[12px] text-[${LABEL}] `}>
+            <span className={`text-[0.75rem] text-[${LABEL}] `}>
               {step.name}
             </span>
           </div>
 
           {idx < steps.length - 1 && (
             <div
-              className={`flex-1 h-px -ml-[12px] -mr-[12px] bg-[${GREY}] -mt-[15px]`}
+              className={`flex-1 h-px -ml-[12px] -mr-[12px] border border-solid border-[${GREY}] -mt-[15px] `}
             />
           )}
         </React.Fragment>
