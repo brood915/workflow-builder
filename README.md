@@ -13,6 +13,7 @@ If you are developing a production application, we recommend using TypeScript wi
 
 ## How to run
 
-npm install
-npm run dev
+- npm install
+- npm run dev
+- Go to the localhost link printed in the terminal
 
