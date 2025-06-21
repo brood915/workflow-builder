@@ -24,12 +24,10 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
           : recordTypes.map((t) => t.id),
     });
 
-    console.log(workflowData);
-  /* ─────────── render ─────────── */
   if (workflowData.criteriaStage === "base") {
     return (
       <>
-        <h3 className="text-lg font-medium text-gray-900 mb-6">
+        <h3 className="text-[16px] text-[#242424] mb-6">
           What will this workflow be based on?
         </h3>
 
@@ -50,7 +48,7 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
   /* second sub-screen */
   return (
     <>
-      <h3 className="text-lg font-medium text-gray-900 mb-6">
+      <h3 className="text-[16px] text-[#242424] mb-6">
         Which record types should be included?
       </h3>
 

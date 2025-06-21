@@ -8,8 +8,8 @@ const ActionStep = ({ workflowData, updateWorkflowData }) => {
   };
 
   return (
-    <div>
-      <h3 className="text-lg font-medium text-gray-900 mb-2">Choose action</h3>
+    <div className="text-[#242424]">
+      <h3 className="text-[16px] mb-2">Choose action</h3>
       <p className="text-gray-600 mb-6">Select what should happen when the trigger is activated</p>
       
       <div className="grid grid-cols-2 gap-3">

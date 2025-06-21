@@ -53,15 +53,15 @@ const WorkflowBuilder = () => {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-md max-h-[90vh] flex flex-col">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b">
-          <h2 className="text-xl font-semibold text-gray-900">New Workflow</h2>
+        <div className="flex items-center justify-between p-6">
+          <h2 className="font-semibold text-[14px] text-[#242424] ">New Workflow</h2>
           <button onClick={handleClose} className="text-gray-400 hover:text-gray-600">
-            <X size={24} />
+            <X size={16} className="text-[#242424] hover:opacity-50" />
           </button>
         </div>
 
         {/* Steps bar */}
-        <div className="px-6 pt-6">
+        <div className="px-8">
           <StepIndicator
             currentStep={currentStep}
             isStepCompleted={isStepCompleted}

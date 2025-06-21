@@ -7,8 +7,8 @@ const ReviewStep = ({ workflowData }) => {
   const selectedAction = actions.find(a => a.id === workflowData.action);
 
   return (
-    <div>
-      <h3 className="text-lg font-medium text-gray-900 mb-2">Review summary</h3>
+    <div className="text-[#242424]">
+      <h3 className="text-[16px] mb-2">Review summary</h3>
       <p className="text-gray-600 mb-6">Review your workflow configuration before creating</p>
       
       <div className="bg-gray-50 rounded-lg p-6 space-y-4">

@@ -44,8 +44,6 @@ export const recordTypes = [
 export const triggers = [
   { id: "record-created",  name: "Record created",  description: "When a new record is created" },
   { id: "record-updated",  name: "Record updated",  description: "When a record is modified" },
-  { id: "record-deleted",  name: "Record deleted",  description: "When a record is removed"   },
-  { id: "record-accessed", name: "Record accessed", description: "When a record is viewed"    },
 ];
 
 export const actions = [

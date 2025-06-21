@@ -9,7 +9,7 @@ const BaseEntityCard = ({ option, isSelected, onSelect }) => {
     <div
       className={`flex items-center p-3 border rounded-lg cursor-pointer transition-all
         ${isSelected
-          ? "border-blue-500 bg-blue-50"
+          ? "border-2 border-solid border-[#1849A9]"
           : "border-gray-200 bg-white hover:bg-gray-50"}`}
       onClick={onSelect}
     >
@@ -18,18 +18,10 @@ const BaseEntityCard = ({ option, isSelected, onSelect }) => {
           isSelected ? "bg-blue-100" : "bg-gray-100"
         }`}
       >
-        <Icon size={16} className={isSelected ? "text-blue-600" : "text-gray-600"} />
+        <Icon size={16} />
       </div>
 
       <span className="flex-1 text-gray-900">{option.name}</span>
-
-      <div
-        className={`w-4 h-4 border rounded flex items-center justify-center ${
-          isSelected ? "bg-blue-600 border-blue-600" : "border-gray-300"
-        }`}
-      >
-        {isSelected && <Check size={12} className="text-white" />}
-      </div>
     </div>
   );
 };

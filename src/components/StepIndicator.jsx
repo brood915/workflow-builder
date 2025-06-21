@@ -1,44 +1,50 @@
-import React from 'react';
-import { Check } from 'lucide-react';
-import { steps } from '../constants/workflowData';
+// src/components/StepIndicator.jsx
+import React from "react";
+import { Check } from "lucide-react";
+import { steps } from "../constants/workflowData";
 
-const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => {
-  return (
-    <div className="flex items-center justify-between mb-8 px-2">
-      {steps.map((step, index) => (
-        <div key={step.id} className="flex items-center flex-1">
+/* Figma colours */
+const GREY   = "#D1D1D1";   // lines, upcoming circles, borders
+const GREEN  = "#14833B";   // completed circle
+const LABEL  = "#242424";   // step names
+
+const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
+  <div className="flex items-center justify-between mb-3">
+    {steps.map((step, idx) => {
+      const completed = isStepCompleted(step.id) && step.id < currentStep;
+      const active    = step.id === currentStep;
+
+      /* circle classes */
+      let circleCls =
+        "flex items-center justify-center w-6 h-6 rounded-full cursor-pointer transition-colors z-10";
+      if (completed) {
+        circleCls += ` bg-[${GREEN}] text-white`;
+      } else if (active) {
+        circleCls += ` bg-white border border-[${GREY}]`;
+      } else {
+        circleCls += ` bg-[#F0F0F0] border border-[${GREY}]`;
+      }
+
+      return (
+        <React.Fragment key={step.id}>
           <div className="flex flex-col items-center">
-            <div
-              className={`flex items-center justify-center w-8 h-8 rounded-full text-sm font-medium cursor-pointer transition-all ${
-                isStepCompleted(step.id)
-                  ? 'bg-blue-600 text-white'
-                  : step.id === currentStep
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-gray-200 text-gray-600'
-              }`}
-              onClick={() => onStepClick(step.id)}
-            >
-              {isStepCompleted(step.id) && step.id < currentStep ? (
-                <Check size={14} />
-              ) : (
-                step.id
-              )}
+            <div className={circleCls} onClick={() => onStepClick(step.id)}>
+              {completed && <Check size={14} className="text-white" />}
             </div>
-            <span className={`text-xs mt-1 text-center ${
-              step.id === currentStep ? 'text-blue-600 font-medium' : 'text-gray-500'
-            }`}>
+            <span className={`text-[12px] text-[${LABEL}] `}>
               {step.name}
             </span>
           </div>
-          {index < steps.length - 1 && (
-            <div className={`flex-1 h-0.5 mx-4 mt-[-10px] ${
-              isStepCompleted(step.id) ? 'bg-blue-600' : 'bg-gray-200'
-            }`} />
+
+          {idx < steps.length - 1 && (
+            <div
+              className={`flex-1 h-px -ml-[12px] -mr-[12px] bg-[${GREY}] -mt-[15px]`}
+            />
           )}
-        </div>
-      ))}
-    </div>
-  );
-};
+        </React.Fragment>
+      );
+    })}
+  </div>
+);
 
 export default StepIndicator;
