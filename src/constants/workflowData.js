@@ -8,12 +8,12 @@ import {
   FaUser,
   FaCircleUser,
   FaHandshake,
-  FaKey,
-  FaBookOpen,
-  FaDiagramProject,
-  FaServer,
-  FaLayerGroup,
-  FaDatabase,
+  FaKeyboard,
+  FaNewspaper,
+  FaCircleCheck,
+  FaHardDrive,
+  FaWindowMaximize,
+  FaCircle,
   FaCirclePlus,
   FaPenToSquare,
   FaFlag,
@@ -27,10 +27,16 @@ import {
   FaRegCalendar,
   FaRegUser,
   FaRegHandshake,
+  FaRegKeyboard,
   FaRegCircleUser,
   FaRegFlag,
+  FaRegCircleCheck,
   FaRegEnvelope,
   FaRegShareFromSquare,
+  FaRegNewspaper,
+  FaRegCircle,
+  FaRegHardDrive,
+  FaRegWindowMaximize,
 } from "react-icons/fa6";
 
 /* helper: use outline if available, else solid */
@@ -43,20 +49,20 @@ export const baseOptions = [
   { id: "website",     name: "Website",     icon: reg(FaFileWord, FaRegFileWord),             iconActive: FaFileWord },
   { id: "expiration",  name: "Expiration",  icon: reg(FaCalendar, FaRegCalendar), iconActive: FaCalendar },
   { id: "user",        name: "User",        icon: reg(FaUser, FaRegUser),   iconActive: FaUser },
-  { id: "group",       name: "Group",       icon: reg(FaCircleUser, FaRegCircleUser),             iconActive: FaCircleUser },   // regular ones are not available in free version
+  { id: "group",       name: "Group",       icon: reg(FaCircleUser, FaRegCircleUser),             iconActive: FaCircleUser },
   { id: "integration", name: "Integration", icon: reg(FaHandshake, FaRegHandshake),              iconActive: FaHandshake },
 ];
 
 /* ========== STEP 1b · record-type checklist ========== */
 export const recordTypes = [
-  { id: "password",   name: "Password",           icon: reg(FaKey),                      iconActive: FaKey },
-  { id: "company-kb", name: "Company KB article", icon: reg(FaBookOpen),                 iconActive: FaBookOpen },
+  { id: "password",   name: "Password",           icon: reg(FaKeyboard, FaRegKeyboard),                      iconActive: FaKeyboard },
+  { id: "company-kb", name: "Company KB article", icon: reg(FaNewspaper, FaRegNewspaper),                 iconActive: FaNewspaper },
   { id: "central-kb", name: "Central KB article", icon: reg(FaFileLines, FaRegFileLines),iconActive: FaFileLines },
-  { id: "process",    name: "Process",            icon: reg(FaDiagramProject),           iconActive: FaDiagramProject },
+  { id: "process",    name: "Process",            icon: reg(FaCircleCheck, FaRegCircleCheck),           iconActive: FaCircleCheck },
   { id: "website",    name: "Website",            icon: reg(FaFileWord, FaRegFileWord),                    iconActive: FaFileWord },
-  { id: "rack",       name: "Rack",               icon: reg(FaServer),                   iconActive: FaServer },
-  { id: "network",    name: "Network",            icon: reg(FaLayerGroup),               iconActive: FaLayerGroup },
-  { id: "asset",      name: "Asset",              icon: reg(FaDatabase),                 iconActive: FaDatabase },
+  { id: "rack",       name: "Rack",               icon: reg(FaHardDrive, FaRegHardDrive),                   iconActive: FaHardDrive, FaRegHardDrive },
+  { id: "network",    name: "Network",            icon: reg(FaWindowMaximize, FaRegWindowMaximize),               iconActive: FaWindowMaximize },
+  { id: "asset",      name: "Asset",              icon: reg(FaCircle, FaRegCircle),                 iconActive: FaCircle },
 ];
 
 /* ========== STEP 2 · triggers ========== */

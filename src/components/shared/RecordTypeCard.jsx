@@ -1,27 +1,28 @@
-import React from 'react';
-import { Check } from 'lucide-react';
-
 const RecordTypeCard = ({ type, isSelected, onToggle }) => {
-  const IconComponent = type.icon;
+  // If you later add `iconActive` to recordTypes you can use it here.
+    const Icon = isSelected ? type.iconActive : type.icon;
 
   return (
     <div
-      className={`flex items-center p-3 border rounded-lg cursor-pointer transition-all hover:border-blue-300 ${
-        isSelected
-          ? 'border-blue-500 bg-blue-50'
-          : 'border-gray-200 bg-white hover:bg-gray-50'
-      }`}
+      className={`border-2 border-solid flex items-center rounded-lg cursor-pointer transition-all
+        ${
+          isSelected
+            ? "border-[#1849A9]"
+            : "border-[#D1D1D1] bg-white hover:bg-gray-50"
+        }`}
       onClick={onToggle}
     >
-      <div className={`p-2 rounded-md mr-3 ${
-        isSelected ? 'bg-blue-100' : 'bg-gray-100'
-      }`}>
-        <IconComponent size={16} className={
-          isSelected ? 'text-blue-600' : 'text-gray-600'
-        } />
+      <div className="p-2 rounded-md mr-1">
+        <Icon
+          size={16}
+        />
       </div>
-      <span className="flex-1 text-gray-900">{type.name}</span>
-      <div className={`w-4 h-4 border rounded flex items-center justify-center ${
+
+      <span className="flex-1 text-[#242424] text-[14px] font-medium">
+        {type.name}
+      </span>
+      {/* I think it is better for the UX to add a checkmark to let users know it can be unselected, but to match the figma mockup, i will comment it out here */}
+      {/* <div className={`w-4 h-4 mr-5 border rounded flex items-center justify-center ${
         isSelected
           ? 'bg-blue-600 border-blue-600'
           : 'border-gray-300'
@@ -29,7 +30,7 @@ const RecordTypeCard = ({ type, isSelected, onToggle }) => {
         {isSelected && (
           <Check size={12} className="text-white" />
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

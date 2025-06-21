@@ -52,7 +52,7 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
         Which record types should be included?
       </h3>
 
-      <div className="space-y-3 mb-6">
+      <div className="space-y-3 mb-2">
         {recordTypes.map((type) => (
           <RecordTypeCard
             key={type.id}
@@ -62,7 +62,6 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
           />
         ))}
       </div>
-
       <SelectAllButton
         selectedCount={workflowData.recordTypes.length}
         totalCount={recordTypes.length}
