@@ -9,9 +9,7 @@ const TriggerStep = ({ workflowData, updateWorkflowData }) => {
 
   return (
     <div className="text-[#242424]">
-      <h3 className="text-[16px] mb-2">Define trigger</h3>
-      <p className="text-gray-600 mb-6">Select the event that will activate this workflow</p>
-      
+      <h3 className="text-[16px] mb-2">What should trigger this workflow?</h3>
       <div className="space-y-3">
         {triggers.map((trigger) => (
           <TriggerCard

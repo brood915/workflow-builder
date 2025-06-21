@@ -1,29 +1,28 @@
-import React from 'react';
-import { Check } from 'lucide-react';
-
 const TriggerCard = ({ trigger, isSelected, onSelect }) => {
+  const Icon = isSelected ? trigger.iconActive : trigger.icon;
+
   return (
     <div
-      className={`p-4 border rounded-lg cursor-pointer transition-all hover:border-blue-300 ${
-        isSelected
-          ? 'border-blue-500 bg-blue-50'
-          : 'border-gray-200 bg-white hover:bg-gray-50'
-      }`}
       onClick={onSelect}
-    >
-      <div className="flex items-center justify-between">
-        <div>
-          <h4 className="font-medium text-gray-900">{trigger.name}</h4>
-          <p className="text-sm text-gray-600 mt-1">{trigger.description}</p>
-        </div>
-        <div className={`w-4 h-4 rounded-full border-2 flex items-center justify-center ${
+      className={`border border-solid flex items-center rounded-lg cursor-pointer transition-all
+        ${
           isSelected
-            ? 'border-blue-600 bg-blue-600'
-            : 'border-gray-300'
-        }`}>
-          {isSelected && <Check size={10} className="text-white" />}
-        </div>
+            ? "ring-2 ring-[#1849A9]"
+            : "border-[#D1D1D1] bg-white hover:bg-gray-50"
+        }`}
+    >     <div className="p-2 rounded-md mr-1">
+        <Icon
+          size={16}
+        />
       </div>
+
+        <span
+          className="flex-1 text-[#242424] text-[14px] font-medium"
+
+        >
+          {trigger.name}
+        </span>
+
     </div>
   );
 };

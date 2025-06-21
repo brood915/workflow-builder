@@ -14,7 +14,7 @@ import {
   FaHardDrive,
   FaWindowMaximize,
   FaCircle,
-  FaCirclePlus,
+  FaClipboard,
   FaPenToSquare,
   FaFlag,
   FaEnvelope,
@@ -37,6 +37,8 @@ import {
   FaRegCircle,
   FaRegHardDrive,
   FaRegWindowMaximize,
+  FaRegClipboard,
+  FaRegPenToSquare,
 } from "react-icons/fa6";
 
 /* helper: use outline if available, else solid */
@@ -67,10 +69,8 @@ export const recordTypes = [
 
 /* ========== STEP 2 · triggers ========== */
 export const triggers = [
-  { id: "record-created", name: "Record created", description: "When a new record is created",
-    icon: reg(FaCirclePlus),  iconActive: FaCirclePlus },   // outline not free
-  { id: "record-updated", name: "Record updated", description: "When a record is modified",
-    icon: reg(FaPenToSquare), iconActive: FaPenToSquare },  // outline not free
+  { id: "record-created", name: "Record created", icon: reg(FaClipboard, FaRegClipboard),  iconActive: FaClipboard },
+  { id: "record-updated", name: "Record updated", icon: reg(FaPenToSquare, FaRegPenToSquare), iconActive: FaPenToSquare },
 ];
 
 /* ========== STEP 3 · actions ========== */

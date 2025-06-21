@@ -3,9 +3,9 @@ const BaseEntityCard = ({ option, isSelected, onSelect }) => {
 
   return (
     <div
-      className={`border-2 border-solid flex items-center border rounded-lg cursor-pointer transition-all
+      className={`border border-solid flex items-center border rounded-lg cursor-pointer transition-all
         ${isSelected
-          ? "border-[#1849A9]"
+          ? "ring-2 ring-[#1849A9]"
           : "border-[#D1D1D1] bg-white hover:bg-gray-50"}`}
       onClick={onSelect}
     >

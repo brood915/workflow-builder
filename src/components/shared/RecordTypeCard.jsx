@@ -1,13 +1,12 @@
 const RecordTypeCard = ({ type, isSelected, onToggle }) => {
-  // If you later add `iconActive` to recordTypes you can use it here.
     const Icon = isSelected ? type.iconActive : type.icon;
 
   return (
     <div
-      className={`border-2 border-solid flex items-center rounded-lg cursor-pointer transition-all
+      className={`border border-solid flex items-center rounded-lg cursor-pointer transition-all box-border
         ${
           isSelected
-            ? "border-[#1849A9]"
+            ? "ring-2 ring-[#1849A9]"
             : "border-[#D1D1D1] bg-white hover:bg-gray-50"
         }`}
       onClick={onToggle}
