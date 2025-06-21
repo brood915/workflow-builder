@@ -1,8 +1,8 @@
 // src/components/steps/CriteriaStep.jsx
 import React from "react";
 import { baseOptions, recordTypes } from "../../constants/workflowData";
-import BaseEntityCard   from "../shared/BaseEntityCard";
-import RecordTypeCard   from "../shared/RecordTypeCard";
+import RadioCard   from "../shared/RadioCard";
+import CheckboxCard   from "../shared/CheckboxCard";
 import SelectAllButton  from "../shared/SelectAllButton";
 
 const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
@@ -27,13 +27,13 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
   if (workflowData.criteriaStage === "base") {
     return (
       <>
-        <h3 className="text-[16px] text-[#242424] mb-6">
+        <h3 className="text-[16px] text-[#242424] mb-3">
           What will this workflow be based on?
         </h3>
 
         <div className="space-y-3">
           {baseOptions.map((opt) => (
-            <BaseEntityCard
+            <RadioCard
               key={opt.id}
               option={opt}
               isSelected={workflowData.baseEntity === opt.id}
@@ -48,13 +48,13 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
   /* second sub-screen */
   return (
     <>
-      <h3 className="text-[16px] text-[#242424] mb-6">
-        Which record types should be included?
+      <h3 className="text-[16px] text-[#242424] mb-3">
+        Which record type(s) should be included?
       </h3>
 
       <div className="space-y-3 mb-2">
         {recordTypes.map((type) => (
-          <RecordTypeCard
+          <CheckboxCard
             key={type.id}
             type={type}
             isSelected={workflowData.recordTypes.includes(type.id)}
