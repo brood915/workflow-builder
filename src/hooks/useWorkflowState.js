@@ -11,7 +11,7 @@ export const useWorkflowState = () => {
         baseEntity: "",
         recordTypes: [],
         trigger: "",
-        action: [],
+        action: "",
       };
 
   const [workflowData, setWorkflowData] = useState(initialWorkflowData);
