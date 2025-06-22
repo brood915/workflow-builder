@@ -74,61 +74,55 @@ const WorkflowBuilder = () => {
         <div className="flex-1 px-6 pb-6 overflow-y-auto">{renderStep()}</div>
 
         {/* ───── Footer ───── */}
-  {/* Footer */}
-<div className="flex items-center p-6 border-t">
+        <div className="flex items-center p-6 border-t">
 
-  {/* Back – left edge */}
-  {workflowData.criteriaStage !== "base" && (
-    <button
-      onClick={handleBack}
-      disabled={currentStep === 1 && workflowData.criteriaStage === "base"}
-      className={`flex items-center py-2 text-sm transition-colors underline ${
-        currentStep === 1 && workflowData.criteriaStage === "base"
-          ? "text-gray-400 cursor-not-allowed"
-          : "text-[#2F6DE9] hover:text-blue-700"
-      }`}
-    >
-      <ChevronLeft size={16} className="mr-1" />
-      Back
-    </button>
-  )}
+          {workflowData.criteriaStage !== "base" && (
+            <button
+              onClick={handleBack}
+              disabled={currentStep === 1 && workflowData.criteriaStage === "base"}
+              className={`flex items-center py-2 text-sm transition-colors underline ${
+                currentStep === 1 && workflowData.criteriaStage === "base"
+                  ? "text-gray-400 cursor-not-allowed"
+                  : "text-[#2F6DE9] hover:text-blue-700"
+              }`}
+            >
+              <ChevronLeft size={16} className="mr-1" />
+              Back
+            </button>
+          )}
 
-  {/* flexible spacer pushes everything that follows to far-right */}
-  <div className="flex-1" />
+          <div className="flex-1" />
 
-  {/* Save & Finish Later – 5 px left of Next */}
-  {currentStep !== 1 && (
-    <button
-      onClick={handleSaveDraft}
-      className="px-8 py-2 rounded-lg text-sm font-medium text-[#1849A9] hover:text-blue-700"
-    >
-      Save & Finish Later
-    </button>
-  )}
+          {currentStep !== 1 && (
+            <button
+              onClick={handleSaveDraft}
+              className="px-8 py-2 rounded-lg text-sm font-medium text-[#1849A9] hover:text-blue-700"
+            >
+              Save and Finish Later
+            </button>
+          )}
 
-  {/* Next / final-step button – always rightmost */}
-  {currentStep < 4 ? (
-    <button
-      onClick={handleNext}
-      disabled={!isStepValid(currentStep)}
-      className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
-        isStepValid(currentStep)
-          ? "bg-[#1849A9] text-white hover:bg-blue-700"
-          : "bg-gray-300 text-gray-500 cursor-not-allowed"
-      }`}
-    >
-      Next
-    </button>
-  ) : (
-    <button
-      onClick={handleSubmit}
-      className="px-6 py-2 bg-[#1849A9] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
-    >
-      Save Draft
-    </button>
-  )}
-</div>
-
+          {currentStep < 4 ? (
+            <button
+              onClick={handleNext}
+              disabled={!isStepValid(currentStep)}
+              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+                isStepValid(currentStep)
+                  ? "bg-[#1849A9] text-white hover:bg-blue-700"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }`}
+            >
+              Next
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              className="px-6 py-2 bg-[#1849A9] text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              Save Draft
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

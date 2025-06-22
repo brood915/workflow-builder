@@ -23,7 +23,7 @@ const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
         <React.Fragment key={step.id}>
           <div className="flex flex-col items-center">
             <div className={circleCls} onClick={() => onStepClick(step.id)}>
-              {completed && <Check size={14} className="text-white" />}
+              {completed && <Check size={16} className="text-white" />}
             </div>
             <span className='text-[12px]'>
               {step.name}
