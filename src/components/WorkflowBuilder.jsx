@@ -19,10 +19,15 @@ const WorkflowBuilder = () => {
     updateWorkflowData,
   } = useWorkflowState();
 
-  const handleClose = () => alert("Workflow builder closed");
+  const handleClose = () => {
+    localStorage.removeItem("workflow-draft");
+    window.location.reload(); //just added for the demo
+    alert("Workflow builder closed"); //would replace with an actual notification flag component instead if I had more time
+  };
   const handleSubmit = () => {
     localStorage.removeItem("workflow-draft");
-    alert("Workflow created successfully!");
+    window.location.reload(); //just added for the demo
+    alert("Workflow created successfully!"); //would replace with an actual notification flag component instead if I had more time
   };
 
   const handleSaveDraft = () => {
@@ -30,7 +35,7 @@ const WorkflowBuilder = () => {
       "workflow-draft",
       JSON.stringify({ workflowData, currentStep })
     );
-    alert("Draft saved! You can resume it later.");
+    alert("Draft saved! You can resume it later."); //would replace with an actual notification flag component instead if I had more time
   };
 
   const renderStep = () => {
