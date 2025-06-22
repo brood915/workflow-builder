@@ -13,7 +13,7 @@ const SelectAllButton = ({ selectedCount, totalCount, onSelectAll }) => {
         {isAllSelected && <Check size={12} className="text-white" />}
       </div>
       <span
-        className='font-medium text-[#242424] text-[14px]'
+        className='font-medium text-[14px]'
       >
         Select all
       </span>

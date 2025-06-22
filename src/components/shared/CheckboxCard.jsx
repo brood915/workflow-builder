@@ -17,7 +17,7 @@ const CheckboxCard = ({ type, isSelected, onToggle }) => {
         />
       </div>
 
-      <span className="flex-1 text-[#242424] text-[14px] font-medium">
+      <span className="flex-1 text-[14px] font-medium">
         {type.name}
       </span>
       {/* I think it is better for the UX to add a checkmark to let users know it can be unselected, but to match the figma mockup, i will comment it out here */}

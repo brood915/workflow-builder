@@ -1,12 +1,9 @@
-// src/components/steps/CriteriaStep.jsx
-import React from "react";
 import { baseOptions, recordTypes } from "../../constants/workflowData";
 import RadioCard   from "../shared/RadioCard";
 import CheckboxCard   from "../shared/CheckboxCard";
 import SelectAllButton  from "../shared/SelectAllButton";
 
 const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
-  /* ───────── stage-specific handlers ───────── */
   const pickBase = (id) => updateWorkflowData({ baseEntity: id });
 
   const toggleRecordType = (id) => {
@@ -27,7 +24,7 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
   if (workflowData.criteriaStage === "base") {
     return (
       <>
-        <h3 className="text-[16px] text-[#242424] mb-3">
+        <h3 className="text-[16px] mb-3">
           What will this workflow be based on?
         </h3>
 
@@ -48,7 +45,7 @@ const CriteriaStep = ({ workflowData, updateWorkflowData }) => {
   /* second sub-screen */
   return (
     <>
-      <h3 className="text-[16px] text-[#242424] mb-3">
+      <h3 className="text-[16px] mb-3">
         Which record type(s) should be included?
       </h3>
 

@@ -15,7 +15,7 @@ const RadioCard = ({ option, isSelected, onSelect }) => {
         <Icon size={16}/>
       </div>
 
-      <span className="flex-1 text-[#242424] text-[14px] font-medium">{option.name}</span>
+      <span className="flex-1 text-[14px] font-medium">{option.name}</span>
     </div>
   );
 };

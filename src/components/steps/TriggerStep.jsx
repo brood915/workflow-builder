@@ -1,4 +1,3 @@
-import React from 'react';
 import { triggers } from '../../constants/workflowData';
 import RadioCard from '../shared/RadioCard';
 
@@ -8,7 +7,7 @@ const TriggerStep = ({ workflowData, updateWorkflowData }) => {
   };
 
   return (
-    <div className="text-[#242424]">
+    <div>
       <h3 className="text-[16px] mb-3">What should trigger this workflow?</h3>
       <div className="space-y-3">
         {triggers.map((trigger) => (

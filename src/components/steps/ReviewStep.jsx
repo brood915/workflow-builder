@@ -1,40 +1,42 @@
-import React from 'react';
 import { recordTypes, triggers, actions } from '../../constants/workflowData';
 
 const ReviewStep = ({ workflowData }) => {
   const selectedRecordTypes = recordTypes.filter(t => workflowData.recordTypes.includes(t.id));
   const selectedTrigger = triggers.find(t => t.id === workflowData.trigger);
-  const selectedAction = actions.find(a => a.id === workflowData.action);
+  const selectedActions = actions.filter(a => workflowData.action.includes(a.id));
 
   return (
-    <div className="text-[#242424]">
-      <h3 className="text-[16px] mb-2">Review summary</h3>
-      <p className="text-gray-600 mb-6">Review your workflow configuration before creating</p>
-      
-      <div className="bg-gray-50 rounded-lg p-6 space-y-4">
+    <div className="text-[14px]">
+      <h3 className="text-[16px] mb-2">Review your workflow below. Click a step to make edits if needed.</h3>
+      <div className="bg-[#FAFAFA] border border-solid border-[#D1D1D1] rounded-lg p-2 space-y-4">
         <div>
-          <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
-            Record Types
-          </h4>
           <div className="space-y-1">
-            {selectedRecordTypes.map(type => (
-              <p key={type.id} className="text-gray-900">{type.name}</p>
-            ))}
+            When any of the following record types is {selectedTrigger?.reviewName}, {' '}
+            {
+              selectedActions.map((action, idx) => {
+                const lastIndex = selectedActions.length - 1;
+                const text = action.reviewName;
+                let sep = "";
+                if (idx < lastIndex - 1) sep = ", ";
+                else if (idx === lastIndex - 1) sep = " and ";
+
+                return (
+                  <span key={action.id} className="text-gray-900">
+                    {text}
+                    {sep}
+                  </span>
+                );
+              })
+            }
+            .
+            <ul className="list-disc pl-5 space-y-1 marker:text-xs">
+              {selectedRecordTypes.map((t) => (
+                <li key={t.id} className="text-gray-900">
+                  {t.name}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        
-        <div>
-          <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
-            Trigger
-          </h4>
-          <p className="text-gray-900">{selectedTrigger?.name}</p>
-        </div>
-        
-        <div>
-          <h4 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
-            Action
-          </h4>
-          <p className="text-gray-900">{selectedAction?.name}</p>
         </div>
       </div>
     </div>

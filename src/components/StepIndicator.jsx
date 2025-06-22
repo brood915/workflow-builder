@@ -25,7 +25,7 @@ const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
             <div className={circleCls} onClick={() => onStepClick(step.id)}>
               {completed && <Check size={14} className="text-white" />}
             </div>
-            <span className='text-[0.75rem] text-[#242424]'>
+            <span className='text-[12px]'>
               {step.name}
             </span>
           </div>

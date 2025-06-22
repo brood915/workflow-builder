@@ -16,3 +16,9 @@
     }
   }
 }
+
+@layer base {
+  html {
+    color: #242424;
+  }
+}

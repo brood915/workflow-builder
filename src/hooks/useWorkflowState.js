@@ -5,14 +5,13 @@ export const useWorkflowState = () => {
   const draft = loadDraft();
   const [currentStep, setCurrentStep] = useState(draft?.currentStep ?? 1);
 
-  const stored = localStorage.getItem("workflow-draft");
   const initialWorkflowData =  draft?.workflowData ??
       {
         criteriaStage: "base",
         baseEntity: "",
         recordTypes: [],
         trigger: "",
-        action: "",
+        action: [],
       };
 
   const [workflowData, setWorkflowData] = useState(initialWorkflowData);
@@ -20,10 +19,10 @@ export const useWorkflowState = () => {
   const isStepValid = (step) => {
     if (step !== 1) {
       if (step === 2) return workflowData.trigger !== "";
-      if (step === 3) return workflowData.action  !== "";
+      if (step === 3) return workflowData.action.length !== 0;
       return true;
     }
-    /* step 1 */
+
     if (workflowData.criteriaStage === "base") {
       return workflowData.baseEntity !== "";
     }
