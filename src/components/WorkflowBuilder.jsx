@@ -57,7 +57,7 @@ const WorkflowBuilder = () => {
         <div className="p-6 flex items-center justify-between">
           <h2 className="font-semibold text-[14px]">New Workflow</h2>
           <button onClick={handleClose} className="text-gray-400 hover:text-gray-600">
-            <X size={16} className="hover:opacity-50" />
+            <X size={16} className="hover:opacity-50 text-[#242424]" />
           </button>
         </div>
 
