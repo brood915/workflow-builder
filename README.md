@@ -12,7 +12,7 @@ Currently, two official plugins are available:
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 ## How to run
-
-- npm install
-- npm run dev
-- Go to the localhost link printed in the terminal
+- go to https://workflow-builder-lovat-chi.vercel.app/. If you want to set up your local, do:
+    - npm install
+    - npm run dev
+    - Go to the localhost link printed in the terminal
