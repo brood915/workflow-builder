@@ -6,14 +6,14 @@ const SelectAllButton = ({ selectedCount, totalCount, onSelectAll }) => {
   return (
     <div className="flex items-center p-1 cursor-pointer" onClick={onSelectAll}>
       <div
-        className={`w-4 h-4 border rounded flex items-center justify-center mr-3
+        className={`relative  w-4 h-4 border rounded flex items-center justify-center mr-2
           ${isAllSelected ? "bg-[#1849A9] border-blue-600"
                           : "border-gray-300"}`}
       >
         {isAllSelected && <Check size={12} className="text-white" />}
       </div>
       <span
-        className='font-medium text-[14px]'
+        className='text-sm'
       >
         Select all
       </span>

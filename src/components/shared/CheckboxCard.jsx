@@ -3,7 +3,7 @@ const CheckboxCard = ({ type, isSelected, onToggle }) => {
 
   return (
     <div
-      className={`border border-solid flex items-center rounded-lg cursor-pointer transition-all
+      className={`border p-0.5 border-solid flex items-center rounded-lg cursor-pointer transition-all
         ${
           isSelected
             ? "ring-2 ring-[#1849A9] bg-[#DEEAF8]"
