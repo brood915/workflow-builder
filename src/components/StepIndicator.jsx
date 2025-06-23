@@ -8,7 +8,6 @@ const StepIndicator = ({ currentStep, isStepCompleted, onStepClick }) => (
       const completed = isStepCompleted(step.id) && step.id < currentStep;
       const active = step.id === currentStep;
 
-      console.log(completed);
       let circleCls =
         "flex items-center justify-center w-6 h-6 rounded-full cursor-pointer transition-colors z-10";
       if (completed) {
