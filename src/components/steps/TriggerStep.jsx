@@ -19,10 +19,10 @@ const TriggerStep = ({ workflowData, updateWorkflowData }) => {
           />
         ))}
       </div>
-      <div className="text-right text-[#1849A9] cursor-pointer font-medium text-sm mt-4 hover:opacity-80">
+      {workflowData.trigger !== "" && <div className="text-right text-[#1849A9] cursor-pointer font-medium text-sm mt-4 hover:opacity-80">
         <span className='text-[15px] mr-2 '>+</span>
         Add Condition
-      </div>
+      </div>}
     </div>
   );
 };
