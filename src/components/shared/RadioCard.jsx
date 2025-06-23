@@ -5,7 +5,7 @@ const RadioCard = ({ option, isSelected, onSelect }) => {
     <div
       className={`border border-solid flex items-center border rounded-lg cursor-pointer transition-all
         ${isSelected
-          ? "ring-2 ring-[#1849A9]"
+          ? "ring-2 ring-[#1849A9] bg-[#DEEAF8]"
           : "border-[#D1D1D1] bg-white hover:bg-gray-50"}`}
       onClick={onSelect}
     >

@@ -7,6 +7,8 @@ import TriggerStep   from "./steps/TriggerStep";
 import ActionStep    from "./steps/ActionStep";
 import ReviewStep    from "./steps/ReviewStep";
 
+import { FaArrowLeft } from "react-icons/fa6";
+
 const WorkflowBuilder = () => {
   const {
     currentStep,
@@ -71,10 +73,10 @@ const WorkflowBuilder = () => {
         </div>
 
         {/* ───── Body ───── */}
-        <div className="flex-1 px-6 pb-6 overflow-y-auto">{renderStep()}</div>
+        <div className="flex-1 px-6 pb-4 overflow-y-auto">{renderStep()}</div>
 
         {/* ───── Footer ───── */}
-        <div className="flex items-center p-6 border-t">
+        <div className="flex items-center px-4 py-2 border-t border-[#D1D1D1]">
 
           {workflowData.criteriaStage !== "base" && (
             <button
@@ -86,7 +88,7 @@ const WorkflowBuilder = () => {
                   : "text-[#2F6DE9] hover:text-blue-700"
               }`}
             >
-              <ChevronLeft size={16} className="mr-1" />
+              <FaArrowLeft className="mr-2" size={12}/>
               Back
             </button>
           )}
@@ -106,7 +108,7 @@ const WorkflowBuilder = () => {
             <button
               onClick={handleNext}
               disabled={!isStepValid(currentStep)}
-              className={`px-6 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 isStepValid(currentStep)
                   ? "bg-[#1849A9] text-white hover:bg-blue-700"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"

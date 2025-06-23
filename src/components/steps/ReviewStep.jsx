@@ -11,9 +11,9 @@ const ReviewStep = ({ workflowData }) => {
       <div className="bg-[#FAFAFA] border border-solid border-[#D1D1D1] rounded-lg p-2 space-y-4">
           <div className="space-y-1">
             When any of the following record types is {selectedTrigger?.reviewName}, {selectedAction?.reviewName}.
-            <ul className="list-disc pl-5 space-y-1 marker:text-xs">
+            <ul className="list-disc pl-5 marker:text-xs">
               {selectedRecordTypes.map((t) => (
-                <li key={t.id} className="text-gray-900">
+                <li key={t.id} className="mt-0">
                   {t.name}
                 </li>
               ))}
